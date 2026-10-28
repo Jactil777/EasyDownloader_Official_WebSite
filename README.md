@@ -20,6 +20,10 @@ Then visit `http://localhost:8080`.
 
 - The platform cards are generated from the project's `测试站点.markdown` compatibility test plan. They are candidate test sites, not a guarantee of current support.
 - Site logos load from Google's public favicon service; each card also has an initials fallback.
-- The feedback form opens a prefilled GitHub issue. Visitors review and submit it themselves; no visitor message is stored by this static website.
+- The public guestbook uses Supabase Edge Functions and Cloudflare Turnstile. New posts remain pending until manually approved in Supabase Table Editor.
 - Release notes and version links currently reflect EasyDownloader v0.1.3 and can be updated in `index.html`.
 - The page explicitly asks visitors to follow platform terms, rights and access restrictions.
+
+## Guestbook setup
+
+See [`supabase/SETUP.md`](supabase/SETUP.md) for database setup, Edge Function deployment, Turnstile secrets, public frontend configuration and moderation steps. Never put the Turnstile secret or any database/service-role password in `site-config.js` or Git.

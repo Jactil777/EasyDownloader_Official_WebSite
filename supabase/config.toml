@@ -1,0 +1,2 @@
+[functions.guestbook]
+verify_jwt = false
