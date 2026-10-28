@@ -13,7 +13,7 @@ In **Project Settings → Edge Functions → Secrets** (or **Edge Functions → 
 | Name | Value |
 | --- | --- |
 | `TURNSTILE_SECRET_KEY` | The rotated Turnstile Secret Key. Never put this in Git or the website. |
-| `GUESTBOOK_ALLOWED_ORIGINS` | The exact production origin, e.g. `https://your-site.vercel.app` (no trailing slash). |
+| `GUESTBOOK_ALLOWED_ORIGINS` | The exact production origin: `https://easydownloader-nine.vercel.app` (no trailing slash). |
 | `GUESTBOOK_RATE_SALT` | A long random private string used to hash visitor IPs before rate-limit storage. |
 
 The Supabase Edge Function receives its Supabase URL and privileged key from the platform; do not add those keys to the website bundle.
@@ -36,7 +36,7 @@ Edit `site-config.js` and fill only these public fields:
 
 ```js
 window.EASYDOWNLOADER_CONFIG = {
-  supabaseUrl: 'https://YOUR_PROJECT_REF.supabase.co',
+  supabaseUrl: 'https://cbmjyxmurghztnlvxamn.supabase.co',
   supabasePublishableKey: 'YOUR_SUPABASE_PUBLISHABLE_KEY',
   turnstileSiteKey: 'YOUR_TURNSTILE_SITE_KEY'
 };
@@ -44,7 +44,7 @@ window.EASYDOWNLOADER_CONFIG = {
 
 The Publishable Key and Turnstile Site Key are intended for browser use. Never put a Turnstile Secret Key, Supabase Secret Key, legacy service-role key, or database password here. Commit and push the public config so Vercel rebuilds the site.
 
-Add the deployed Vercel hostname to the Turnstile widget's **Hostname Management**. If you use a custom domain later, add that hostname there too. The configured hostname must match the origin used by the public site.
+The current production hostname is `easydownloader-nine.vercel.app`; it must be listed in the Turnstile widget's **Hostname Management**, and the Edge Function allowlist must use `https://easydownloader-nine.vercel.app` with no trailing slash. If you use a custom domain later, add that hostname there too.
 
 ## 5. Review and manage messages
 
